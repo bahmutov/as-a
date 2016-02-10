@@ -15,4 +15,6 @@ const name = process.argv[2]
 const command = process.argv.slice(3)
 debug(name, '-', command)
 
-la(is.unemptyString(name), 'expected env name', process.argv)
+const asA = require('..')
+la(is.fn(asA), 'expected function', asA)
+asA(name, command)
