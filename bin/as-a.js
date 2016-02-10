@@ -6,9 +6,10 @@ const is = require('check-more-types')
 const join = require('path').join
 
 require('simple-bin-help')({
-  minArguments: 3,
+  minArguments: 4,
   packagePath: join(__dirname, '..', 'package.json'),
-  help: 'use: as-a <env settings name> [command with options]'
+  help: 'use    : as-a <env settings name> [command with options]\n' +
+    'example: as-a DEV node client.js --request foo'
 })
 
 const name = process.argv[2]
