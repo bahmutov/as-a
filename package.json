@@ -1,20 +1,21 @@
 {
   "name": "as-a",
-  "version": "1.0.0",
   "description": "Runs a given command with additional environment settings for simple local development",
   "main": "src/index.js",
+  "version": "0.0.0-semantic-release",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "standard --verbose bin/*.js src/*.js",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
-    "commit": "commit-wizard"
+    "commit": "commit-wizard",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "bin": {
     "as-a": "bin/as-a.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bahmutov/as-a.git"
+    "url": "https://github.com/bahmutov/as-a.git"
   },
   "preferGlobal": true,
   "keywords": [
@@ -26,7 +27,8 @@
     "tool"
   ],
   "files": [
-    "bin"
+    "bin",
+    "src"
   ],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "license": "MIT",
@@ -46,7 +48,8 @@
   },
   "devDependencies": {
     "pre-git": "3.3.0",
-    "standard": "6.0.4"
+    "standard": "6.0.4",
+    "semantic-release": "^4.3.5"
   },
   "config": {
     "pre-git": {
