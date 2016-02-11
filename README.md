@@ -36,6 +36,20 @@ Now you can run any command (with arguments) and add the section as environment 
 
 Recommended to keep private settings for DEV urls, secrets, etc.
 
+## Multiple profiles
+
+You can even use settings from multiple groups of settings using comma-separated list
+
+```ini
+[DEV]
+username=tester
+password=pass1234
+[redis]
+REDIST_HOST=localhost:4534
+```
+
+    as-a DEV,redis node index.js
+
 ## Use case
 
 Read how to run a Redis server inside the Docker container using `as-a` in this

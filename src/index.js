@@ -65,16 +65,25 @@ function asA (name, command) {
     return read(fullProfileFilename, 'utf-8')
   })
   debug('loaded ini file', fullProfileFilename)
-  if (!ini.hasSection(name)) {
-    console.error('Cannot find section named', name)
-    console.error('In the env settings file', fullProfileFilename)
-    process.exit(-1)
-  }
-  const settings = ini[name]
-  la(is.object(settings),
-    'expected settings for section', name, 'not', settings)
 
-  runCommand(command, settings)
+  const envNames = name.split(',')
+    .map(_.trim)
+    .filter(is.unemptyString)
+
+  const settings = envNames.map(function (envName) {
+    if (!ini.hasSection(envName)) {
+      console.error('Cannot find section named', envName)
+      console.error('In the env settings file', fullProfileFilename)
+      process.exit(-1)
+    }
+    const settings = ini[envName]
+    la(is.object(settings),
+      'expected settings for section', envName, 'not', settings)
+    return settings
+  })
+  const combined = _.assign.apply(null, [{}].concat(settings))
+
+  runCommand(command, combined)
     .catch(function (error) {
       console.error(error)
       process.exit(-1)
