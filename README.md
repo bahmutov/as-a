@@ -6,6 +6,34 @@
 [![Build status][as-a-ci-image] ][as-a-ci-url]
 [![semantic-release][semantic-image] ][semantic-url]
 
+## Install
+
+    npm install --global as-a
+
+## Use
+
+Create a file in your user's home directory `.as-a.ini`
+
+    touch ~/.as-a.ini
+
+Create separate sections for groups of environment settings. For example
+
+```ini
+; this is a test section
+[test]
+name=test
+why=just because
+```
+
+Now you can run any command (with arguments) and add the section as environment variables.
+
+    $ npm run env | grep why
+    --- nothing ----
+    $ as-a test npm run env | grep why
+    why=just because
+
+Recommended to keep private settings for DEV urls, secrets, etc.
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2016

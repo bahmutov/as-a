@@ -26,7 +26,7 @@ function runCommand (command, extraEnv) {
     }
     const prog = command[0]
     const args = command.slice(1)
-    debug(`running "${prog}" with extra env keys`, Object.keys(extraEnv), command)
+    debug(`running "${prog}" with extra env keys`, Object.keys(extraEnv))
 
     const proc = spawn(prog, args, spawnOptions)
 
