@@ -6,6 +6,8 @@
 [![Build status][as-a-ci-image] ][as-a-ci-url]
 [![semantic-release][semantic-image] ][semantic-url]
 
+`as-a` = run "as a" ...
+
 ## Install
 
     npm install --global as-a
@@ -33,6 +35,11 @@ Now you can run any command (with arguments) and add the section as environment 
     why=just because
 
 Recommended to keep private settings for DEV urls, secrets, etc.
+
+## Use case
+
+Read how to run a Redis server inside the Docker container using `as-a` in this
+[gist](https://gist.github.com/bahmutov/f09b5895f5bb0f2a13f5).
 
 ### Small print
 
