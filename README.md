@@ -55,6 +55,11 @@ REDIST_HOST=localhost:4534
 Read how to run a Redis server inside the Docker container using `as-a` in this
 [gist](https://gist.github.com/bahmutov/f09b5895f5bb0f2a13f5).
 
+## Secret folder
+
+To better separate secrets from user home folder, you can place the `.as-a.ini` file
+into subfolder `~/.as-a/.as-a.ini`.
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2016
