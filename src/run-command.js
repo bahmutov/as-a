@@ -3,7 +3,7 @@
 const debug = require('debug')('as-a')
 const la = require('lazy-ass')
 const is = require('check-more-types')
-const spawn = require('cross-spawn-async')
+const spawn = require('cross-spawn')
 const _ = require('lodash')
 
 function runCommand (command, extraEnv) {
