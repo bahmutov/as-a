@@ -60,6 +60,20 @@ Read how to run a Redis server inside the Docker container using `as-a` in this
 To better separate secrets from user home folder, you can place the `.as-a.ini` file
 into subfolder `~/.as-a/.as-a.ini`.
 
+## Local file
+
+Sometimes it makes sense to have a local file `.as-a.ini` in the project's
+folder (current working directory) with settings that should override
+any section from the home folder's `.as-a.ini`. Just create such file and use
+it.
+
+Resolution
+
+- local `.as-a.ini` + `~/.as-a.ini` => combination, local file wins
+- local `.as-a.ini` + `~/.as-a/.as-a.ini` => combination, local file wins
+- local `.as-a.ini` => just this file
+- otherwise an error is thrown
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2016

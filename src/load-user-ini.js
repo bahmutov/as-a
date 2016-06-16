@@ -10,26 +10,40 @@ const userHome = require('user-home')
 const PROFILE_FOLDER = '.as-a'
 const PROFILE_FILENAME = '.as-a.ini'
 
-function readFile (filename) {
-  return read(filename, 'utf-8')
+function readFiles (first, second) {
+  const firstSource = read(first, 'utf-8')
+  if (!second) {
+    return firstSource
+  }
+  const secondSource = read(second, 'utf-8')
+
+  return secondSource + '\n' + firstSource
 }
 
-function loadIniFile (filename) {
-  const readIni = readFile.bind(null, filename)
-  const ini = new SimpleIni(readIni)
-  debug('loaded ini file', filename)
+function loadIniFiles (filename1, filename2) {
+  const readIni = readFiles.bind(null, filename1, filename2)
+  const ini = new SimpleIni(readIni, {throwOnDuplicate: false})
+  debug('loaded ini file(s)', filename1, filename2)
   return ini
 }
 
 function loadUserIni () {
+  const localFile = join(process.cwd(), PROFILE_FILENAME)
+  const localIniFilename = exists(localFile) ? localFile : undefined
+
   const fullProfileFilename = join(userHome, PROFILE_FILENAME)
   if (exists(fullProfileFilename)) {
-    return loadIniFile(fullProfileFilename)
+    return loadIniFiles(fullProfileFilename, localIniFilename)
   }
 
   const profileInFolder = join(userHome, PROFILE_FOLDER, PROFILE_FILENAME)
   if (exists(profileInFolder)) {
-    return loadIniFile(profileInFolder)
+    return loadIniFiles(profileInFolder, localIniFilename)
+  }
+
+  if (localIniFilename) {
+    debug('returning just local ini file')
+    return loadIniFiles(localIniFilename)
   }
 
   console.error('Cannot find file with env setting')
