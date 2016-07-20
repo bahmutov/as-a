@@ -114,9 +114,9 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-[as-a-icon]: https://nodei.co/npm/as-a.png?downloads=true
+[as-a-icon]: https://nodei.co/npm/as-a.svg?downloads=true
 [as-a-url]: https://npmjs.org/package/as-a
-[as-a-ci-image]: https://travis-ci.org/bahmutov/as-a.png?branch=master
+[as-a-ci-image]: https://travis-ci.org/bahmutov/as-a.svg?branch=master
 [as-a-ci-url]: https://travis-ci.org/bahmutov/as-a
 [semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 [semantic-url]: https://github.com/semantic-release/semantic-release
