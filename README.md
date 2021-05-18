@@ -12,6 +12,15 @@
 
     npm install --global as-a
 
+You can run this tool without installing it
+
+    npx as-a [section name] [command ...]
+
+You can also install this tool locally as a dev dependency. In that case, it will start faster than using `npx as-a ...` without an install.
+
+    npm i -D as-a
+    npx as-a [section name] [command ...]
+
 ## Use
 
 Create a file in your user's home directory `.as-a.ini`
