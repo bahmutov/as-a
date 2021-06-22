@@ -8,7 +8,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: NPM install
-        uses: bahmutov/npm-install@v2
+        uses: bahmutov/npm-install@v1
 
       - name: Lint 🖌
         run: npm run lint
@@ -19,5 +19,7 @@ jobs:
       - name: Semantic Release 🚀
         uses: cycjimmy/semantic-release-action@v2
         env:
+          # github token is automatically created by the GH Action workflow
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # created using semantic-release
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

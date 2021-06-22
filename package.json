@@ -2,13 +2,13 @@
   "name": "as-a",
   "description": "Runs a given command with additional environment settings for simple local development",
   "main": "src/index.js",
-  "version": "0.0.0-semantic-release",
+  "version": "0.0.0-development",
   "scripts": {
     "test": "node ./bin/as-a testing node ./test",
     "lint": "standard --verbose bin/*.js src/*.js",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "commit": "commit-wizard",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release"
   },
   "bin": {
     "as-a": "bin/as-a.js"
@@ -49,7 +49,7 @@
   "devDependencies": {
     "pre-git": "3.3.0",
     "standard": "6.0.4",
-    "semantic-release": "^4.3.5"
+    "semantic-release": "^17.4.4"
   },
   "config": {
     "pre-git": {
