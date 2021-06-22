@@ -22,8 +22,13 @@ function readFiles (first, second) {
 
 function loadIniFiles (filename1, filename2) {
   const readIni = readFiles.bind(null, filename1, filename2)
-  const ini = new SimpleIni(readIni, {throwOnDuplicate: false})
-  debug('loaded ini file(s)', filename1, filename2)
+  const ini = new SimpleIni(readIni, { throwOnDuplicate: false })
+  if (filename1) {
+    debug('loaded ini file "%s"', filename1)
+  }
+  if (filename2) {
+    debug('loaded ini file "%s"', filename2)
+  }
   return ini
 }
 
