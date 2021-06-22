@@ -3,7 +3,7 @@
 
 [![NPM][as-a-icon] ][as-a-url]
 
-[![Build status][as-a-ci-image] ][as-a-ci-url]
+[![ci status][ci image]][ci url]
 [![semantic-release][semantic-image] ][semantic-url]
 
 `as-a` = run "as a" ...
@@ -88,8 +88,8 @@ Resolution
 Author: Gleb Bahmutov &copy; 2016
 
 * [@bahmutov](https://twitter.com/bahmutov)
-* [glebbahmutov.com](http://glebbahmutov.com)
-* [blog](http://glebbahmutov.com/blog/)
+* [glebbahmutov.com](https://glebbahmutov.com)
+* [blog](https://glebbahmutov.com/blog/)
 
 License: MIT - do anything with the code, but don't blame me if it does not work.
 
@@ -125,7 +125,8 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 [as-a-icon]: https://nodei.co/npm/as-a.svg?downloads=true
 [as-a-url]: https://npmjs.org/package/as-a
-[as-a-ci-image]: https://travis-ci.org/bahmutov/as-a.svg?branch=master
-[as-a-ci-url]: https://travis-ci.org/bahmutov/as-a
 [semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
 [semantic-url]: https://github.com/semantic-release/semantic-release
+
+[ci image]: https://github.com/bahmutov/as-a/workflows/ci/badge.svg?branch=master
+[ci url]: https://github.com/bahmutov/as-a/actions
