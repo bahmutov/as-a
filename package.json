@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "version": "0.0.0-semantic-release",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node ./bin/as-a testing node ./test",
     "lint": "standard --verbose bin/*.js src/*.js",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "commit": "commit-wizard",
