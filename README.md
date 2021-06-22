@@ -59,6 +59,22 @@ REDIST_HOST=localhost:4534
 
     as-a DEV,redis node index.js
 
+## Current folder
+
+A good practice for me was naming a section after the folder name. For example, if the INI file has the following:
+
+```ini
+[my-server-repo]
+DB_USERNAME=user1234
+```
+
+Then we can inject the variables by running in the folder "my-server-repo" using "."
+
+```
+/my/folders/my-server-repo: $ as-a . node ./start
+# injects section "my-server-repo"
+```
+
 ## Use case
 
 Read how to run a Redis server inside the Docker container using `as-a` in this

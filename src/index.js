@@ -1,5 +1,6 @@
 'use strict'
 
+const path = require('path')
 const debug = require('debug')('as-a')
 const la = require('lazy-ass')
 const is = require('check-more-types')
@@ -10,6 +11,11 @@ const loadUserIni = require('./load-user-ini')
 function asA (name, command) {
   la(is.unemptyString(name), 'expected env name', name)
   la(is.array(command), 'expected command to run', command)
+
+  if (name === '.') {
+    name = path.basename(process.cwd())
+    debug('using the current folder name "%s" as section', name)
+  }
 
   const ini = loadUserIni()
 

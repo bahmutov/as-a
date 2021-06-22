@@ -5,6 +5,7 @@
   "version": "0.0.0-development",
   "scripts": {
     "test": "node ./bin/as-a testing node ./test",
+    "test:dot": "node ./bin/as-a . node ./test",
     "lint": "standard --verbose bin/*.js src/*.js",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "commit": "commit-wizard",
