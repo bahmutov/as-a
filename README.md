@@ -8,6 +8,8 @@
 
 `as-a` = run "as a" ...
 
+Watch [Use Utility as-a To Load Multiple Secrets And Pass To Cypress](https://youtu.be/GyjCGKzFjWA) to see how I pass multiple values via environment variables when launching Cypress test runner.
+
 ## Install
 
     npm install --global as-a
@@ -104,6 +106,7 @@ Resolution
 
 ## Read
 
+- watch [Use Utility as-a To Load Multiple Secrets And Pass To Cypress](https://youtu.be/GyjCGKzFjWA)
 - [Keep passwords secret in E2E tests](https://glebbahmutov.com/blog/keep-passwords-secret-in-e2e-tests/)
 
 ## Small print
