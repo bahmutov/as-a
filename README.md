@@ -92,12 +92,15 @@ folder (current working directory) with settings that should override
 any section from the home folder's `.as-a.ini`. Just create such file and use
 it.
 
+**Tip:** when using a local `.as-a.ini` file make sure to `git ignore .as-a.ini` to avoid accidentally committing this file to the repository.
+
 Resolution
 
 - local `.as-a.ini` + `~/.as-a.ini` => combination, local file wins
 - local `.as-a.ini` + `~/.as-a/.as-a.ini` => combination, local file wins
 - local `.as-a.ini` => just this file
 - otherwise an error is thrown
+
 
 ## Read
 
