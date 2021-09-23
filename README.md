@@ -108,14 +108,18 @@ Resolution
 
 - watch [Use Utility as-a To Load Multiple Secrets And Pass To Cypress](https://youtu.be/GyjCGKzFjWA)
 - [Keep passwords secret in E2E tests](https://glebbahmutov.com/blog/keep-passwords-secret-in-e2e-tests/)
+- recommended to watch [Passing the environment variables to Cypress](https://youtu.be/jAiYePsxPl4)
 
 ## Small print
 
 Author: Gleb Bahmutov &copy; 2016
 
-* [@bahmutov](https://twitter.com/bahmutov)
-* [glebbahmutov.com](https://glebbahmutov.com)
-* [blog](https://glebbahmutov.com/blog/)
+- [@bahmutov](https://twitter.com/bahmutov)
+- [glebbahmutov.com](https://glebbahmutov.com)
+- [blog](https://glebbahmutov.com/blog/)
+- [videos](https://www.youtube.com/glebbahmutov)
+- [presentations](https://slides.com/bahmutov)
+- [cypress.tips](https://cypress.tips)
 
 License: MIT - do anything with the code, but don't blame me if it does not work.
 
