@@ -104,6 +104,18 @@ Resolution
 - otherwise an error is thrown
 
 
+## NPM module API
+
+### getSettings
+
+Loads the specified settings sections and returns merged object
+
+```js
+const {getSettings} = require('as-a')
+// load sections [db] and [app]
+getSettings('db,app') // {DB_HOST:...,USERNAME:...}
+```
+
 ## Read
 
 - watch [Use Utility as-a To Load Multiple Secrets And Pass To Cypress](https://youtu.be/GyjCGKzFjWA)

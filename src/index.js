@@ -8,9 +8,14 @@ const _ = require('lodash')
 const runCommand = require('./run-command')
 const loadUserIni = require('./load-user-ini')
 
-function asA (name, command) {
+/**
+ * Collects all the settings from the user's .as-a.ini file(s)
+ * and returns as a list of objects
+ * @param {String} name
+ * @returns {Object} All merged settings together
+ */
+function getSettings (name) {
   la(is.unemptyString(name), 'expected env name', name)
-  la(is.array(command), 'expected command to run', command)
 
   if (name === '.') {
     name = path.basename(process.cwd())
@@ -34,7 +39,16 @@ function asA (name, command) {
       'expected settings for section', envName, 'not', settings)
     return settings
   })
+
   const combined = _.assign.apply(null, [{}].concat(settings))
+  return combined
+}
+
+function asA (name, command) {
+  la(is.unemptyString(name), 'expected env name', name)
+  la(is.array(command), 'expected command to run', command)
+
+  const combined = getSettings(name)
 
   runCommand(command, combined)
     .catch(function (error) {
@@ -43,4 +57,4 @@ function asA (name, command) {
     })
 }
 
-module.exports = { asA }
+module.exports = { asA, getSettings }
