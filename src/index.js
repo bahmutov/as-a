@@ -22,7 +22,7 @@ function asA (name, command) {
   const envNames = name.split(',')
     .map(_.trim)
     .filter(is.unemptyString)
-  debug('loading sections'. envNames)
+  debug('loading sections', envNames)
 
   const settings = envNames.map(function (envName) {
     if (!ini.hasSection(envName)) {
@@ -43,4 +43,4 @@ function asA (name, command) {
     })
 }
 
-module.exports = asA
+module.exports = { asA }

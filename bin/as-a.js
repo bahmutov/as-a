@@ -16,6 +16,6 @@ const name = process.argv[2]
 const command = process.argv.slice(3)
 debug('name and command: %s - %o', name, command)
 
-const asA = require('..')
+const asA = require('..').asA
 la(is.fn(asA), 'expected function', asA)
 asA(name, command)
