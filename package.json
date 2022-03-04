@@ -4,9 +4,11 @@
   "main": "src/index.js",
   "version": "0.0.0-development",
   "scripts": {
-    "test": "node ./bin/as-a testing node ./test",
-    "test:dot": "node ./bin/as-a . node ./test",
-    "lint": "standard --verbose bin/*.js src/*.js",
+    "test": "ava test",
+    "demo:dot": "node ./bin/as-a . node ./demo",
+    "demo": "node ./bin/as-a demo node ./demo",
+    "lint": "standard --verbose bin/*.js src/*.js test/*.js",
+    "fix": "standard --verbose --fix bin/*.js src/*.js test/*.js",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "commit": "commit-wizard",
     "semantic-release": "semantic-release"
@@ -48,9 +50,10 @@
     "user-home": "2.0.0"
   },
   "devDependencies": {
+    "ava": "^4.0.1",
     "pre-git": "3.3.0",
-    "standard": "6.0.4",
-    "semantic-release": "^17.4.4"
+    "semantic-release": "^17.4.4",
+    "standard": "^16.0.4"
   },
   "config": {
     "pre-git": {

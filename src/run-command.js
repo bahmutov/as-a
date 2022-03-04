@@ -33,7 +33,7 @@ function runCommand (command, extraEnv) {
     proc.on('close', (code) => {
       debug(`${prog} exit code ${code}`)
       if (code) {
-        let msg = `${prog} exit code ${code}`
+        const msg = `${prog} exit code ${code}`
         console.error(msg)
         return reject(new Error(msg))
       }
