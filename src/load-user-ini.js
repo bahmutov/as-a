@@ -20,6 +20,10 @@ function readFiles (first, second) {
   return secondSource + '\n' + firstSource
 }
 
+function hasAliases (name) {
+  return name.includes(',')
+}
+
 function loadIniFiles (filename1, filename2) {
   const readIni = readFiles.bind(null, filename1, filename2)
   const ini = new SimpleIni(readIni, { throwOnDuplicate: false })
@@ -29,6 +33,20 @@ function loadIniFiles (filename1, filename2) {
   if (filename2) {
     debug('loaded ini file "%s"', filename2)
   }
+
+  // some sections might have multiple names (aliases)
+  // let's split them into separate sections
+  Object.keys(ini).forEach(function (sectionName) {
+    if (hasAliases(sectionName)) {
+      debug('splitting section "%s" into multiple sections', sectionName)
+      const aliases = sectionName.split(',').filter(Boolean).map(s => s.trim())
+      aliases.forEach(function (alias) {
+        ini[alias] = ini[sectionName]
+      })
+      delete ini[sectionName]
+    }
+  })
+
   return ini
 }
 
