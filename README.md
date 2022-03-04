@@ -104,6 +104,19 @@ Resolution
 - otherwise an error is thrown
 
 
+## Version
+
+To see the version of the installed `as-a` run it without arguments
+
+```
+$ as-a
+as-a@2.1.0
+ > Runs a given command with additional environment settings
+ > for simple local development
+use    : as-a <env settings name> [command with options]
+example: as-a DEV node client.js --request foo
+```
+
 ## NPM module API
 
 ### getSettings
