@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "version": "0.0.0-development",
   "scripts": {
-    "test": "node ./bin/as-a testing node ./test",
+    "test": "ava test",
     "demo:dot": "node ./bin/as-a . node ./demo",
     "demo": "node ./bin/as-a demo node ./demo",
     "lint": "standard --verbose bin/*.js src/*.js",
