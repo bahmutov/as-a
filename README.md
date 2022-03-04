@@ -104,6 +104,24 @@ Resolution
 - otherwise an error is thrown
 
 
+## Section aliases
+
+Just like you can use multiple sections, the INI sections themselves can have multiple aliases. For example, you can have the same section under two or more names to avoid duplication:
+
+```ini
+; you can use these environment variables by using name "user" or "personal"
+[user, personal]
+NAME=...
+ID=...
+```
+
+These two commands are equivalent
+
+```shell
+$ as-a user ...
+$ as-a personal ...
+```
+
 ## Version
 
 To see the version of the installed `as-a` run it without arguments
