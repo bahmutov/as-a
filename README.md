@@ -147,6 +147,17 @@ const {getSettings} = require('as-a')
 getSettings('db,app') // {DB_HOST:...,USERNAME:...}
 ```
 
+## Debugging
+
+If the settings are not applied correctly, run the command with `DEBUG=as-a` variable
+
+```
+$ DEBUG=as-a as-a name command arguments ...
+  as-a loading sections +1ms [ 'name' ]
+  as-a running "npx" with extra env keys +0ms [ 'USERNAME', 'PASSWORD' ]
+  ..
+```
+
 ## Read
 
 - watch [Use Utility as-a To Load Multiple Secrets And Pass To Cypress](https://youtu.be/GyjCGKzFjWA)
