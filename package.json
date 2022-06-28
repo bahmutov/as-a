@@ -45,7 +45,7 @@
     "debug": "2.2.0",
     "lazy-ass": "1.3.0",
     "lodash": "4.3.0",
-    "simple-bin-help": "1.6.0",
+    "simple-bin-help": "1.7.7",
     "simple-ini": "1.0.4",
     "user-home": "2.0.0"
   },
