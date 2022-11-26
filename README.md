@@ -8,7 +8,8 @@
 
 `as-a` = run "as a" ...
 
-Watch [Use Utility as-a To Load Multiple Secrets And Pass To Cypress](https://youtu.be/GyjCGKzFjWA) to see how I pass multiple values via environment variables when launching Cypress test runner.
+- 📺 Watch [Use Utility as-a To Load Multiple Secrets And Pass To Cypress](https://youtu.be/GyjCGKzFjWA) to see how I pass multiple values via environment variables when launching Cypress test runner.
+- 📺 Watch [Inject Entire Objects Into Cypress Tests Using as-a Utility](https://youtu.be/dxGhIvFNm4I)
 
 ## Install
 
