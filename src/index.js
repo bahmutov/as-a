@@ -14,7 +14,7 @@ const loadUserIni = require('./load-user-ini')
  * @param {String} name
  * @returns {Object} All merged settings together
  */
-function getSettings (name) {
+function getSettings(name) {
   la(is.unemptyString(name), 'expected env name', name)
 
   if (name === '.') {
@@ -35,16 +35,19 @@ function getSettings (name) {
       process.exit(-1)
     }
     const settings = ini[envName]
-    la(is.object(settings),
-      'expected settings for section', envName, 'not', settings)
-    return settings
+    // Trim the values of each setting
+    const trimmedSettings = _.mapValues(settings, _.trim);
+
+    la(is.object(trimmedSettings),
+      'expected settings for section', envName, 'not', trimmedSettings);
+    return trimmedSettings;
   })
 
   const combined = _.assign.apply(null, [{}].concat(settings))
   return combined
 }
 
-function asA (name, command) {
+function asA(name, command) {
   la(is.unemptyString(name), 'expected env name', name)
   la(is.array(command), 'expected command to run', command)
 
