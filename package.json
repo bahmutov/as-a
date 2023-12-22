@@ -5,6 +5,7 @@
   "version": "0.0.0-development",
   "scripts": {
     "test": "ava test",
+    "test:watch": "ava test --watch",
     "demo:dot": "node ./bin/as-a . node ./demo",
     "demo": "node ./bin/as-a demo node ./demo",
     "commit": "commit-wizard",

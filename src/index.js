@@ -23,6 +23,12 @@ function getSettings(name) {
   }
 
   const ini = loadUserIni()
+  return getSettingsFrom(name, ini)
+}
+
+function getSettingsFrom(name, ini) {
+  la(is.unemptyString(name), 'expected env name', name)
+  la(ini, 'expected loaded ini object', ini)
 
   const envNames = name.split(',').map(_.trim).filter(is.unemptyString)
   debug('loading sections', envNames)
@@ -33,14 +39,17 @@ function getSettings(name) {
       process.exit(-1)
     }
     const settings = ini[envName]
+    // Trim the values of each setting
+    const trimmedSettings = _.mapValues(settings, _.trim)
+
     la(
-      is.object(settings),
+      is.object(trimmedSettings),
       'expected settings for section',
       envName,
       'not',
-      settings,
+      trimmedSettings,
     )
-    return settings
+    return trimmedSettings
   })
 
   const combined = _.assign.apply(null, [{}].concat(settings))
@@ -59,4 +68,4 @@ function asA(name, command) {
   })
 }
 
-module.exports = { asA, getSettings }
+module.exports = { asA, getSettings, getSettingsFrom }

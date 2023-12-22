@@ -10,7 +10,7 @@ const userHome = require('user-home')
 const PROFILE_FOLDER = '.as-a'
 const PROFILE_FILENAME = '.as-a.ini'
 
-function readFiles (first, second) {
+function readFiles(first, second) {
   const firstSource = read(first, 'utf-8')
   if (!second) {
     return firstSource
@@ -20,11 +20,11 @@ function readFiles (first, second) {
   return secondSource + '\n' + firstSource
 }
 
-function hasAliases (name) {
+function hasAliases(name) {
   return name.includes(',')
 }
 
-function loadIniFiles (filename1, filename2) {
+function loadIniFiles(filename1, filename2) {
   const readIni = readFiles.bind(null, filename1, filename2)
   const ini = new SimpleIni(readIni, { throwOnDuplicate: false })
   if (filename1) {
@@ -39,7 +39,10 @@ function loadIniFiles (filename1, filename2) {
   Object.keys(ini).forEach(function (sectionName) {
     if (hasAliases(sectionName)) {
       debug('splitting section "%s" into multiple sections', sectionName)
-      const aliases = sectionName.split(',').filter(Boolean).map(s => s.trim())
+      const aliases = sectionName
+        .split(',')
+        .filter(Boolean)
+        .map((s) => s.trim())
       aliases.forEach(function (alias) {
         ini[alias] = ini[sectionName]
       })
@@ -50,18 +53,22 @@ function loadIniFiles (filename1, filename2) {
   return ini
 }
 
-function loadUserIni () {
+function loadUserIni(useCurrentFolderOnly = false) {
   const localFile = join(process.cwd(), PROFILE_FILENAME)
   const localIniFilename = exists(localFile) ? localFile : undefined
 
-  const fullProfileFilename = join(userHome, PROFILE_FILENAME)
-  if (exists(fullProfileFilename)) {
-    return loadIniFiles(fullProfileFilename, localIniFilename)
+  if (!useCurrentFolderOnly) {
+    const fullProfileFilename = join(userHome, PROFILE_FILENAME)
+    if (exists(fullProfileFilename)) {
+      return loadIniFiles(fullProfileFilename, localIniFilename)
+    }
   }
 
-  const profileInFolder = join(userHome, PROFILE_FOLDER, PROFILE_FILENAME)
-  if (exists(profileInFolder)) {
-    return loadIniFiles(profileInFolder, localIniFilename)
+  if (!useCurrentFolderOnly) {
+    const profileInFolder = join(userHome, PROFILE_FOLDER, PROFILE_FILENAME)
+    if (exists(profileInFolder)) {
+      return loadIniFiles(profileInFolder, localIniFilename)
+    }
   }
 
   if (localIniFilename) {
