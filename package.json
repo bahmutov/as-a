@@ -7,9 +7,6 @@
     "test": "ava test",
     "demo:dot": "node ./bin/as-a . node ./demo",
     "demo": "node ./bin/as-a demo node ./demo",
-    "lint": "standard --verbose bin/*.js src/*.js test/*.js",
-    "fix": "standard --verbose --fix bin/*.js src/*.js test/*.js",
-    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "commit": "commit-wizard",
     "semantic-release": "semantic-release"
   },
@@ -51,23 +48,6 @@
   },
   "devDependencies": {
     "ava": "^4.0.1",
-    "pre-git": "3.3.0",
-    "semantic-release": "^17.4.4",
-    "standard": "^16.0.4"
-  },
-  "config": {
-    "pre-git": {
-      "commit-msg": [
-        "simple"
-      ],
-      "pre-commit": [
-        "npm run lint"
-      ],
-      "pre-push": [
-        "npm run size"
-      ],
-      "post-commit": [],
-      "post-merge": []
-    }
+    "semantic-release": "^17.4.4"
   }
 }
