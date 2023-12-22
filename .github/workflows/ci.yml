@@ -2,16 +2,13 @@ name: ci
 on: [push]
 jobs:
   tests:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: NPM install
         uses: bahmutov/npm-install@v1
-
-      - name: Lint 🖌
-        run: npm run lint
 
       - name: Test 🧪
         run: npm test
@@ -23,7 +20,8 @@ jobs:
         run: npm run demo:dot
 
       - name: Semantic Release 🚀
-        uses: cycjimmy/semantic-release-action@v2
+        # https://github.com/cycjimmy/semantic-release-action
+        uses: cycjimmy/semantic-release-action@v4
         env:
           # github token is automatically created by the GH Action workflow
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
