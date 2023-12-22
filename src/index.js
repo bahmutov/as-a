@@ -14,7 +14,7 @@ const loadUserIni = require('./load-user-ini')
  * @param {String} name
  * @returns {Object} All merged settings together
  */
-function getSettings (name) {
+function getSettings(name) {
   la(is.unemptyString(name), 'expected env name', name)
 
   if (name === '.') {
@@ -24,9 +24,7 @@ function getSettings (name) {
 
   const ini = loadUserIni()
 
-  const envNames = name.split(',')
-    .map(_.trim)
-    .filter(is.unemptyString)
+  const envNames = name.split(',').map(_.trim).filter(is.unemptyString)
   debug('loading sections', envNames)
 
   const settings = envNames.map(function (envName) {
@@ -35,8 +33,13 @@ function getSettings (name) {
       process.exit(-1)
     }
     const settings = ini[envName]
-    la(is.object(settings),
-      'expected settings for section', envName, 'not', settings)
+    la(
+      is.object(settings),
+      'expected settings for section',
+      envName,
+      'not',
+      settings,
+    )
     return settings
   })
 
@@ -44,17 +47,16 @@ function getSettings (name) {
   return combined
 }
 
-function asA (name, command) {
+function asA(name, command) {
   la(is.unemptyString(name), 'expected env name', name)
   la(is.array(command), 'expected command to run', command)
 
   const combined = getSettings(name)
 
-  runCommand(command, combined)
-    .catch(function (error) {
-      console.error(error)
-      process.exit(-1)
-    })
+  runCommand(command, combined).catch(function (error) {
+    console.error(error)
+    process.exit(-1)
+  })
 }
 
 module.exports = { asA, getSettings }
