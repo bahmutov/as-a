@@ -31,7 +31,12 @@ function getSettingsFrom(name, ini) {
   la(ini, 'expected loaded ini object', ini)
 
   const envNames = name.split(',').map(_.trim).filter(is.unemptyString)
-  debug('loading sections', envNames)
+  debug(
+    'split "%s" and loading %d sections: %o',
+    name,
+    envNames.length,
+    envNames,
+  )
 
   const settings = envNames.map(function (envName) {
     if (!ini.hasSection(envName)) {
@@ -49,6 +54,7 @@ function getSettingsFrom(name, ini) {
       'not',
       trimmedSettings,
     )
+    debug('loaded settings for section "%s"', envName)
     return trimmedSettings
   })
 

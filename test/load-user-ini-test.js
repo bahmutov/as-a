@@ -44,3 +44,13 @@ test('trims trailing spaces', (t) => {
     MY_VAR_WITH_SPACES: 'Hello',
   })
 })
+
+test('uses command-separated list of section names', (t) => {
+  const ini = loadUserIni(true)
+  const section = getSettingsFrom('demo,another-section', ini)
+  // the setting should have its trailing spaces removed
+  t.deepEqual(section, {
+    MY_VARIABLE: '42',
+    MY_VARIABLE2: 'foo',
+  })
+})
