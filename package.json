@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bahmutov/as-a.git"
+    "url": "git+https://github.com/bahmutov/as-a.git"
   },
   "preferGlobal": true,
   "keywords": [
