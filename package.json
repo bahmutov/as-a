@@ -9,7 +9,8 @@
     "demo:dot": "node ./bin/as-a . node ./demo",
     "demo": "node ./bin/as-a demo node ./demo",
     "commit": "commit-wizard",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "deps": "npm audit --omit dev"
   },
   "bin": {
     "as-a": "bin/as-a.js"
@@ -39,7 +40,7 @@
   "homepage": "https://github.com/bahmutov/as-a#readme",
   "dependencies": {
     "check-more-types": "2.10.0",
-    "cross-spawn": "4.0.0",
+    "cross-spawn": "7.0.6",
     "debug": "4.3.6",
     "lazy-ass": "1.3.0",
     "lodash": "4.17.21",

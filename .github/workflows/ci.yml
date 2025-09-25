@@ -18,6 +18,9 @@ jobs:
       - name: Demo 🎬
         run: npm run demo
 
+      - name: Check production dependencies
+        run: npm run deps
+
       - name: Demo dot 🎬
         run: npm run demo:dot
 
